@@ -41,7 +41,24 @@ namespace Assignment1
 
         public static IEnumerable<string> InnerText(string html, string tag)
         {
-            throw new NotImplementedException();
+
+
+            string strRegex = @$"<({tag})[^>]*>[^(<\/\1>)]*.*?<\/\1>";
+            MatchCollection matches = Regex.Matches(html, strRegex);
+
+            string regexOpen = $"<[a-z]+[^>]*>";
+            string regexClose = @$"<\/[a-z]+>";
+            
+
+            foreach (Match content in matches)
+                {
+                    string CleanedStringFromOpen = Regex.Replace(content.Value, regexOpen, "");
+                    string CleanedString = Regex.Replace(CleanedStringFromOpen, regexClose, "");
+                    
+
+                    yield return CleanedString;
+                }
+            
         }
     }
 }
