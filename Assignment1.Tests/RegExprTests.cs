@@ -45,7 +45,6 @@ namespace Assignment1.Tests
             Assert.Equal(expected, RegExpr.SplitLine(list));
         }
 
-
         [Fact]
         public void InnerText_given_tag_teksttekst_tag_return_teksttekst(){
             var html = "<tag>teksttekst</tag>";
