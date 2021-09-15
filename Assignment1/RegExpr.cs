@@ -8,8 +8,6 @@ namespace Assignment1
     {
         public static IEnumerable<string> SplitLine(IEnumerable<string> lines)
         {
-
-
             foreach(var line in lines){
 
                 MatchCollection matches = Regex.Matches(line, @"[A-Za-z0-9]+");
@@ -24,16 +22,16 @@ namespace Assignment1
 
         }
 
-        public static IEnumerable<(int width, int height)> Resolution(string resolutions)
+        public static IEnumerable<(int width, int height)> Resolution(IEnumerable<string> resolutions)
         {
             
             foreach (var resolution in resolutions)
             {
-                MacthCollection matches = Regex.Match("(?P<witdh>[0-9]+)+x(?P<height>[0-9]+)");
-                foreach (Macth resolution in matches)
+                MatchCollection matches = Regex.Matches(resolution, @"(?<witdh>[0-9]+)+x(?<height>[0-9]+)");
+
+                foreach (Match match in matches)
                 {
-                    var stitch = "(" + resolution.Groups["width"].value + "," + resolution.Groups["height"] +")"
-                    yield return stitch;
+                    yield return (Int32.Parse(match.Groups[1].Value), Int32.Parse(match.Groups[2].Value));
                 }
 
             }
