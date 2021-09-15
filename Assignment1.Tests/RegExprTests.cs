@@ -7,7 +7,7 @@ namespace Assignment1.Tests
     public class RegExprTests
     {
         [Fact]
-        public void Resolution_given_list_of_4_resolutions_returns_8_int_width_pairs()
+        public void Resolution_given_list_of_4_resolutions_returns_8_width_height_pairs()
         {
         List<string> resolutions = new List<string>();
         resolutions.Add("1920x1080");
