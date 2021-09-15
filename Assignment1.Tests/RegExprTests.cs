@@ -18,8 +18,6 @@ namespace Assignment1.Tests
         IEnumerable<(int, int)> actual = RegExpr.Resolution(resolutions);
         IEnumerable<(int, int)> expected = new[] {(1920, 1080), (1024, 768), (800, 600), (640, 480), (320, 200), (320, 240), (800, 600), (1280, 960)};
 
-        //, (1024, 768), (800, 600), (640, 480), (320, 200), (320, 240), (800, 600), (1280, 960)
-
         Assert.Equal(expected, actual);
         
         }
